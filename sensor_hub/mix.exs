@@ -23,13 +23,14 @@ defmodule SensorHub.MixProject do
   def application do
     [
       mod: {SensorHub.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :inets]
     ]
   end
 
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:vintage_net_wifi, "~> 0.10.5", targets: @all_targets},
       # Dependencies for all targets
       {:nerves, "~> 1.7.0", runtime: false},
       {:shoehorn, "~> 0.7.0"},
